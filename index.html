@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathilde & Romain · 26 juin 2027</title>
+  <meta name="description" content="Le mariage de Mathilde et Romain, le 26 juin 2027 dans le Golfe du Morbihan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======= HERO ======= -->
+  <header class="hero">
+    <p class="hero__pre">Nous nous marions !</p>
+    <h1 class="hero__title">Mathilde <span class="amp">&amp;</span> Romain</h1>
+    <p class="hero__date">Samedi 26 juin 2027</p>
+    <p class="hero__place">Golfe du Morbihan · Bretagne</p>
+    <p class="hero__countdown" id="countdown" aria-live="polite"></p>
+    <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,64 C240,120 480,0 720,48 C960,96 1200,24 1440,64 L1440,120 L0,120 Z"></path>
+    </svg>
+  </header>
+
+  <!-- ======= ONGLETS ======= -->
+  <nav class="tabs" role="tablist" aria-label="Sections du site">
+    <button class="tab" role="tab" id="tab-accueil" aria-controls="accueil" data-target="accueil">Accueil</button>
+    <button class="tab" role="tab" id="tab-planning" aria-controls="planning" data-target="planning">Planning</button>
+    <button class="tab" role="tab" id="tab-acces" aria-controls="acces" data-target="acces">Accès</button>
+    <button class="tab" role="tab" id="tab-logement" aria-controls="logement" data-target="logement">Logement</button>
+    <button class="tab" role="tab" id="tab-liste" aria-controls="liste" data-target="liste">Liste de mariage</button>
+  </nav>
+
+  <main>
+
+    <!-- ======= ACCUEIL ======= -->
+    <section class="panel" id="accueil" role="tabpanel" aria-labelledby="tab-accueil">
+      <h2>Bienvenue</h2>
+      <div class="welcome">
+        <figure class="photo photo--couple">
+          <img src="images/couple.jpg" alt="Mathilde et Romain" loading="lazy"
+               onerror="this.closest('figure').hidden = true">
+        </figure>
+        <p class="lead">
+          Nous sommes heureux de vous inviter à célébrer notre mariage au cœur du Golfe du Morbihan.
+          Vous trouverez sur ce site toutes les informations pratiques pour profiter pleinement de ce week-end avec nous.
+        </p>
+      </div>
+
+      <div class="cards cards--3">
+        <article class="card">
+          <span class="card__icon" aria-hidden="true">⛪</span>
+          <h3>La cérémonie</h3>
+          <p class="card__when">Samedi · vers 14h30 <em>(à confirmer)</em></p>
+          <p>Église de Locmariaquer</p>
+        </article>
+        <article class="card">
+          <span class="card__icon" aria-hidden="true">🥂</span>
+          <h3>La réception</h3>
+          <p class="card__when">Samedi · à partir de 17h</p>
+          <p>Domaine de Kerat, Arradon</p>
+        </article>
+        <article class="card">
+          <span class="card__icon" aria-hidden="true">🦪</span>
+          <h3>Le brunch</h3>
+          <p class="card__when">Dimanche · 11h <em>(à confirmer)</em></p>
+          <p>Maison Jegat, pointe d'Arradon</p>
+        </article>
+      </div>
+
+      <p class="center">
+        <a class="btn" href="#planning">Voir le planning</a>
+      </p>
+
+      <!-- ======= RSVP ======= -->
+      <div class="rsvp" id="rsvp">
+        <h2>Serez-vous des nôtres ?</h2>
+        <p class="center">
+          Merci de nous répondre avant le <span class="tbc">date à préciser</span>.<br>
+          Une réponse par foyer suffit.
+        </p>
+
+        <p class="center">
+          <button type="button" class="btn" id="rsvp-open" disabled>Répondre à l'invitation</button>
+        </p>
+      </div>
+    </section>
+
+    <!-- ======= PLANNING ======= -->
+    <section class="panel" id="planning" role="tabpanel" aria-labelledby="tab-planning" hidden>
+      <h2>Le planning du week-end</h2>
+
+      <h3 class="day">Samedi 26 juin 2027</h3>
+      <ol class="timeline">
+        <li>
+          <span class="timeline__time">~14h30</span>
+          <div class="timeline__content">
+            <h4>Cérémonie religieuse</h4>
+            <p>Église de Locmariaquer. <span class="tbc">Horaire à confirmer</span></p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline__time">17h00</span>
+          <div class="timeline__content">
+            <h4>Vin d'honneur</h4>
+            <p>Au Domaine de Kerat, à Arradon.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline__time"></span>
+          <div class="timeline__content">
+            <h4>Dîner</h4>
+            <p>Au Domaine de Kerat.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline__time"></span>
+          <div class="timeline__content">
+            <h4>Soirée dansante</h4>
+            <p>Jusqu'au bout de la nuit…</p>
+          </div>
+        </li>
+      </ol>
+
+      <h3 class="day">Dimanche 27 juin 2027</h3>
+      <ol class="timeline">
+        <li>
+          <span class="timeline__time">~11h00</span>
+          <div class="timeline__content">
+            <h4>Brunch au bord de l'eau</h4>
+            <p>À la Maison Jegat, pointe d'Arradon. Huîtres, crevettes et autres fruits de mer pour bien finir le week-end. <span class="tbc">Horaire à confirmer</span></p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ======= ACCÈS ======= -->
+    <section class="panel" id="acces" role="tabpanel" aria-labelledby="tab-acces" hidden>
+      <h2>Accès</h2>
+
+      <div class="cards cards--2">
+        <article class="card card--venue">
+          <figure class="photo photo--venue">
+            <img src="images/eglise.jpg" alt="L'église de Locmariaquer" loading="lazy"
+                 onerror="this.closest('figure').hidden = true">
+          </figure>
+          <h3>Église de Locmariaquer</h3>
+          <p class="card__when">Cérémonie religieuse · ~14h30 <span class="tbc">(à confirmer)</span></p>
+          <p>Place de l'Église, 56740 Locmariaquer</p>
+          <div class="map">
+            <iframe
+              title="Carte : Église de Locmariaquer"
+              src="https://www.google.com/maps?q=%C3%89glise+Notre-Dame-de-Kerdro+Locmariaquer&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <a class="btn btn--small" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/dir/?api=1&destination=%C3%89glise+Notre-Dame-de-Kerdro+Locmariaquer">Itinéraire</a>
+        </article>
+
+        <article class="card card--venue">
+          <figure class="photo photo--venue">
+            <img src="images/kerat.jpg" alt="Le Domaine de Kerat à Arradon" loading="lazy"
+                 onerror="this.closest('figure').hidden = true">
+          </figure>
+          <h3>Domaine de Kerat</h3>
+          <p class="card__when">Réception · à partir de 17h</p>
+          <p>56610 Arradon <span class="tbc">Adresse exacte à préciser</span></p>
+          <div class="map">
+            <iframe
+              title="Carte : Domaine de Kerat, Arradon"
+              src="https://www.google.com/maps?q=Domaine+de+Kerat+Arradon&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <a class="btn btn--small" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/dir/?api=1&destination=Domaine+de+Kerat+Arradon">Itinéraire</a>
+        </article>
+
+        <article class="card card--venue card--wide">
+          <h3>Maison Jegat</h3>
+          <p class="card__when">Brunch du dimanche · ~11h <span class="tbc">(à confirmer)</span></p>
+          <p>Pointe d'Arradon, 56610 Arradon</p>
+          <div class="venue-media">
+            <figure class="photo">
+              <img src="images/jegat.jpg" alt="La Maison Jegat, pointe d'Arradon" loading="lazy"
+                   onerror="this.closest('figure').hidden = true">
+            </figure>
+            <div class="map">
+              <iframe
+                title="Carte : Maison Jegat, pointe d'Arradon"
+                src="https://www.google.com/maps?q=Maison+Jegat+Pointe+d%27Arradon&output=embed"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+          <a class="btn btn--small" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/dir/?api=1&destination=Maison+Jegat+Pointe+d%27Arradon">Itinéraire</a>
+        </article>
+      </div>
+
+      <div class="info">
+        <h3>Infos pratiques</h3>
+        <ul>
+          <li><strong>Entre l'église et le domaine :</strong> environ 35 à 40 minutes en voiture (par Auray). Pensez au covoiturage !</li>
+          <li><strong>Pour le brunch :</strong> la Maison Jegat est à quelques minutes du Domaine de Kerat, à la pointe d'Arradon.</li>
+          <li><strong>En train :</strong> gares d'Auray (la plus proche de Locmariaquer) et de Vannes (la plus proche d'Arradon), TGV direct depuis Paris-Montparnasse.</li>
+          <li><strong>En avion :</strong> aéroports de Lorient Bretagne Sud, Nantes Atlantique ou Rennes.</li>
+          <li><strong>Stationnement :</strong> <span class="tbc">informations à venir</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======= LOGEMENT ======= -->
+    <section class="panel" id="logement" role="tabpanel" aria-labelledby="tab-logement" hidden>
+      <h2>Se loger à proximité</h2>
+      <p class="notice">
+        Fin juin, c'est la haute saison dans le Golfe du Morbihan : nous vous conseillons de réserver votre hébergement le plus tôt possible.
+      </p>
+
+      <div class="cards cards--2">
+        <article class="card">
+          <h3>Arradon</h3>
+          <p>Sur place, au plus près de la réception. Idéal pour profiter de la soirée sans prendre la route.</p>
+          <p class="links">
+            <a target="_blank" rel="noopener" href="https://www.booking.com/searchresults.fr.html?ss=Arradon">Booking</a>
+            <a target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Arradon--France/homes">Airbnb</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>Vannes</h3>
+          <p>À 10 minutes d'Arradon : le plus grand choix d'hôtels, une gare TGV et une jolie vieille ville.</p>
+          <p class="links">
+            <a target="_blank" rel="noopener" href="https://www.booking.com/searchresults.fr.html?ss=Vannes">Booking</a>
+            <a target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Vannes--France/homes">Airbnb</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>Baden &amp; Larmor-Baden</h3>
+          <p>Entre l'église et le domaine, au bord du Golfe. Chambres d'hôtes et gîtes de charme.</p>
+          <p class="links">
+            <a target="_blank" rel="noopener" href="https://www.booking.com/searchresults.fr.html?ss=Baden%2C+Morbihan">Booking</a>
+            <a target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Baden--France/homes">Airbnb</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>Locmariaquer &amp; Auray</h3>
+          <p>Près de l'église : Locmariaquer pour la mer, Auray et le port de Saint-Goustan pour le charme.</p>
+          <p class="links">
+            <a target="_blank" rel="noopener" href="https://www.booking.com/searchresults.fr.html?ss=Locmariaquer">Booking</a>
+            <a target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Auray--France/homes">Airbnb</a>
+          </p>
+        </article>
+      </div>
+
+      <p class="center muted">Nos bonnes adresses arriveront bientôt ici.</p>
+    </section>
+
+    <!-- ======= LISTE DE MARIAGE ======= -->
+    <section class="panel" id="liste" role="tabpanel" aria-labelledby="tab-liste" hidden>
+      <h2>Liste de mariage</h2>
+      <p class="lead center">
+        Votre présence à nos côtés est notre plus beau cadeau.<br>
+        Pour ceux qui le souhaitent, une liste de mariage sera bientôt disponible.
+      </p>
+      <p class="center">
+        <!-- Remplacer href="#" par le lien de la liste, et retirer la classe btn--disabled + aria-disabled -->
+        <a class="btn btn--disabled" id="registry-link" href="#" aria-disabled="true">Bientôt disponible</a>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ======= POP-UP RSVP ======= -->
+  <dialog class="modal" id="rsvp-modal" aria-labelledby="rsvp-modal-title">
+    <div class="modal__header">
+      <h2 class="modal__title" id="rsvp-modal-title">Votre réponse</h2>
+      <button type="button" class="modal__close" id="rsvp-close" aria-label="Fermer">&times;</button>
+    </div>
+    <iframe class="modal__frame" id="rsvp-frame" title="Formulaire de réponse"></iframe>
+    <p class="modal__fallback">
+      Le formulaire ne s'affiche pas ?
+      <a id="rsvp-newtab" href="#" target="_blank" rel="noopener">Ouvrez-le dans un nouvel onglet</a>.
+    </p>
+  </dialog>
+
+  <footer class="footer">
+    <svg class="wave wave--top" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,64 C240,120 480,0 720,48 C960,96 1200,24 1440,64 L1440,0 L0,0 Z"></path>
+    </svg>
+    <p class="footer__names">Mathilde &amp; Romain</p>
+    <p>26 · 06 · 2027</p>
+    <p class="muted">Une question ? Contactez-nous : <span class="tbc">email à ajouter</span></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
