@@ -8,16 +8,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
 
   <!-- ======= HERO ======= -->
   <header class="hero">
-    <p class="hero__pre">Nous nous marions !</p>
+    <p class="hero__pre" data-i18n="hero.pre">Nous nous marions !</p>
     <h1 class="hero__title">Mathilde <span class="amp">&amp;</span> Romain</h1>
-    <p class="hero__date">Samedi 26 juin 2027</p>
-    <p class="hero__place">Golfe du Morbihan · Bretagne</p>
+    <p class="hero__date" data-i18n="hero.date">Samedi 26 juin 2027</p>
+    <p class="hero__place" data-i18n="hero.place">Golfe du Morbihan · Bretagne</p>
     <p class="hero__countdown" id="countdown"></p>
     <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0,64 C240,120 480,0 720,48 C960,96 1200,24 1440,64 L1440,120 L0,120 Z"></path>
@@ -25,25 +25,32 @@
   </header>
 
   <!-- ======= ONGLETS ======= -->
-  <nav class="tabs" role="tablist" aria-label="Sections du site">
-    <button class="tab" role="tab" id="tab-accueil" aria-controls="accueil" data-target="accueil">Accueil</button>
-    <button class="tab" role="tab" id="tab-planning" aria-controls="planning" data-target="planning">Planning</button>
-    <button class="tab" role="tab" id="tab-acces" aria-controls="acces" data-target="acces">Accès</button>
-    <button class="tab" role="tab" id="tab-logement" aria-controls="logement" data-target="logement">Logement</button>
-    <button class="tab" role="tab" id="tab-liste" aria-controls="liste" data-target="liste">Liste de mariage</button>
-  </nav>
+  <div class="topbar">
+    <nav class="tabs" role="tablist" aria-label="Sections du site" data-i18n-attr="aria-label=nav.label">
+      <button class="tab" role="tab" id="tab-accueil" aria-controls="accueil" data-target="accueil" data-i18n="tab.accueil">Accueil</button>
+      <button class="tab" role="tab" id="tab-planning" aria-controls="planning" data-target="planning" data-i18n="tab.planning">Planning</button>
+      <button class="tab" role="tab" id="tab-acces" aria-controls="acces" data-target="acces" data-i18n="tab.acces">Accès</button>
+      <button class="tab" role="tab" id="tab-logement" aria-controls="logement" data-target="logement" data-i18n="tab.logement">Logement</button>
+      <button class="tab" role="tab" id="tab-liste" aria-controls="liste" data-target="liste" data-i18n="tab.liste">Liste de mariage</button>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Langue / Lingua">
+      <button type="button" data-lang="fr" lang="fr"><span class="lang-long">Français</span><span class="lang-short">FR</span></button>
+      <span class="lang-sep" aria-hidden="true">·</span>
+      <button type="button" data-lang="it" lang="it"><span class="lang-long">Italiano</span><span class="lang-short">IT</span></button>
+    </div>
+  </div>
 
   <main>
 
     <!-- ======= ACCUEIL ======= -->
     <section class="panel" id="accueil" role="tabpanel" aria-labelledby="tab-accueil">
-      <h2>Bienvenue</h2>
+      <h2 data-i18n="home.title">Bienvenue</h2>
       <div class="welcome">
         <figure class="photo photo--couple">
           <img src="images/couple.jpg" alt="Mathilde et Romain" loading="lazy"
-               onerror="this.closest('figure').hidden = true">
+               onerror="this.closest('figure').hidden = true" data-i18n-attr="alt=img.couple">
         </figure>
-        <p class="lead">
+        <p class="lead" data-i18n="home.lead">
           Nous sommes heureux de vous inviter à célébrer notre mariage au cœur du Golfe du Morbihan.
           Vous trouverez sur ce site toutes les informations pratiques pour profiter pleinement de ce week-end avec nous.
         </p>
@@ -52,84 +59,84 @@
       <div class="cards cards--3">
         <article class="card">
           <span class="card__icon" aria-hidden="true">⛪</span>
-          <h3>La cérémonie</h3>
-          <p class="card__when">Samedi · 14h30 <em>(à confirmer)</em></p>
-          <p>Église de Locmariaquer</p>
+          <h3 data-i18n="home.ceremony">La cérémonie</h3>
+          <p class="card__when" data-i18n="home.ceremony.when">Samedi · 14h30 <em>(à confirmer)</em></p>
+          <p data-i18n="home.ceremony.place">Église de Locmariaquer</p>
         </article>
         <article class="card">
           <span class="card__icon" aria-hidden="true">🥂</span>
-          <h3>La réception</h3>
-          <p class="card__when">Samedi · à partir de 17h</p>
+          <h3 data-i18n="home.reception">La réception</h3>
+          <p class="card__when" data-i18n="home.reception.when">Samedi · à partir de 17h</p>
           <p>Manoir de Kerat, Arradon</p>
         </article>
         <article class="card">
           <span class="card__icon" aria-hidden="true">🦪</span>
-          <h3>Le brunch</h3>
-          <p class="card__when">Dimanche · 11h <em>(à confirmer)</em></p>
-          <p>Maison Jegat, pointe d'Arradon</p>
+          <h3 data-i18n="home.brunch">Le brunch</h3>
+          <p class="card__when" data-i18n="home.brunch.when">Dimanche · 11h <em>(à confirmer)</em></p>
+          <p data-i18n="home.brunch.place">Maison Jegat, pointe d'Arradon</p>
         </article>
       </div>
 
       <p class="center">
-        <a class="btn" href="#planning">Voir le planning</a>
+        <a class="btn" href="#planning" data-i18n="home.seePlanning">Voir le planning</a>
       </p>
 
       <!-- ======= RSVP ======= -->
       <div class="rsvp" id="rsvp">
-        <h2>Serez-vous des nôtres ?</h2>
-        <p class="center">
+        <h2 data-i18n="rsvp.title">Serez-vous des nôtres ?</h2>
+        <p class="center" data-i18n="rsvp.text">
           Une réponse par foyer suffit.
         </p>
 
         <p class="center">
-          <button type="button" class="btn" id="rsvp-open" disabled>Répondre à l'invitation</button>
+          <button type="button" class="btn" id="rsvp-open" disabled data-i18n="rsvp.button">Répondre à l'invitation</button>
         </p>
       </div>
     </section>
 
     <!-- ======= PLANNING ======= -->
     <section class="panel" id="planning" role="tabpanel" aria-labelledby="tab-planning" hidden>
-      <h2>Le planning du week-end</h2>
+      <h2 data-i18n="plan.title">Le planning du week-end</h2>
 
-      <h3 class="day">Samedi 26 juin 2027</h3>
+      <h3 class="day" data-i18n="plan.saturday">Samedi 26 juin 2027</h3>
       <ol class="timeline">
         <li>
-          <span class="timeline__time">14h30 <small class="tbc">(à confirmer)</small></span>
+          <span class="timeline__time" data-i18n="plan.ceremony.time">14h30 <small class="tbc">(à confirmer)</small></span>
           <div class="timeline__content">
-            <h4>Cérémonie religieuse</h4>
-            <p>Église de Locmariaquer.</p>
+            <h4 data-i18n="plan.ceremony">Cérémonie religieuse</h4>
+            <p data-i18n="plan.ceremony.place">Église de Locmariaquer.</p>
           </div>
         </li>
         <li>
-          <span class="timeline__time">17h00</span>
+          <span class="timeline__time" data-i18n="plan.cocktail.time">17h00</span>
           <div class="timeline__content">
-            <h4>Vin d'honneur</h4>
-            <p>Au Manoir de Kerat, à Arradon.</p>
-          </div>
-        </li>
-        <li>
-          <span class="timeline__time"></span>
-          <div class="timeline__content">
-            <h4>Dîner</h4>
-            <p>Au Manoir de Kerat.</p>
+            <h4 data-i18n="plan.cocktail">Vin d'honneur</h4>
+            <p data-i18n="plan.cocktail.place">Au Manoir de Kerat, à Arradon.</p>
           </div>
         </li>
         <li>
           <span class="timeline__time"></span>
           <div class="timeline__content">
-            <h4>Soirée dansante</h4>
-            <p>Jusqu'au bout de la nuit…</p>
+            <h4 data-i18n="plan.dinner">Dîner</h4>
+            <p data-i18n="plan.dinner.place">Au Manoir de Kerat.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline__time"></span>
+          <div class="timeline__content">
+            <h4 data-i18n="plan.party">Soirée dansante</h4>
+            <p data-i18n="plan.party.text">Jusqu'au bout de la nuit…</p>
           </div>
         </li>
       </ol>
 
-      <h3 class="day">Dimanche 27 juin 2027</h3>
+      <h3 class="day" data-i18n="plan.sunday">Dimanche 27 juin 2027</h3>
       <ol class="timeline">
         <li>
-          <span class="timeline__time">11h00 <small class="tbc">(à confirmer)</small></span>
+          <span class="timeline__time" data-i18n="plan.brunch.time">11h00 <small class="tbc">(à confirmer)</small></span>
           <div class="timeline__content">
-            <h4>Brunch au bord de l'eau</h4>
-            <p>Maison Jegat, pointe d'Arradon.</p>
+            <h4 data-i18n="plan.brunch">Brunch au bord de l'eau</h4>
+            <p data-i18n="plan.brunch.place">Maison Jegat, pointe d'Arradon.</p>
           </div>
         </li>
       </ol>
@@ -137,129 +144,129 @@
 
     <!-- ======= ACCÈS ======= -->
     <section class="panel" id="acces" role="tabpanel" aria-labelledby="tab-acces" hidden>
-      <h2>Accès</h2>
+      <h2 data-i18n="access.title">Accès</h2>
 
       <div class="cards cards--2">
         <article class="card card--venue">
           <figure class="photo photo--venue">
             <img src="images/eglise.jpg" alt="L'église de Locmariaquer" loading="lazy"
-                 onerror="this.closest('figure').hidden = true">
+                 onerror="this.closest('figure').hidden = true" data-i18n-attr="alt=img.church">
           </figure>
-          <h3>Église de Locmariaquer</h3>
-          <p class="card__when">Cérémonie religieuse · 14h30 <span class="tbc">(à confirmer)</span></p>
+          <h3 data-i18n="access.church">Église de Locmariaquer</h3>
+          <p class="card__when" data-i18n="access.church.when">Cérémonie religieuse · 14h30 <span class="tbc">(à confirmer)</span></p>
           <p>Place de l'Église, 56740 Locmariaquer</p>
           <div class="map">
             <iframe
               title="Carte : Église de Locmariaquer"
               src="https://www.google.com/maps?q=%C3%89glise+Notre-Dame-de-Kerdro+Locmariaquer&output=embed"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-i18n-attr="title=map.church"></iframe>
           </div>
           <a class="btn btn--small" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/dir/?api=1&destination=%C3%89glise+Notre-Dame-de-Kerdro+Locmariaquer">Itinéraire</a>
+             href="https://www.google.com/maps/dir/?api=1&destination=%C3%89glise+Notre-Dame-de-Kerdro+Locmariaquer" data-i18n="access.directions">Itinéraire</a>
         </article>
 
         <article class="card card--venue">
           <figure class="photo photo--venue">
             <img src="images/kerat.jpg" alt="Le Manoir de Kerat à Arradon" loading="lazy"
-                 onerror="this.closest('figure').hidden = true">
+                 onerror="this.closest('figure').hidden = true" data-i18n-attr="alt=img.kerat">
           </figure>
           <h3>Manoir de Kerat</h3>
-          <p class="card__when">Réception · à partir de 17h</p>
+          <p class="card__when" data-i18n="access.kerat.when">Réception · à partir de 17h</p>
           <p>5 Impasse de Kerat, 56610 Arradon</p>
           <div class="map">
             <iframe
               title="Carte : Manoir de Kerat, Arradon"
               src="https://www.google.com/maps?q=5+Impasse+de+Kerat%2C+56610+Arradon&output=embed"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-i18n-attr="title=map.kerat"></iframe>
           </div>
           <a class="btn btn--small" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/dir/?api=1&destination=5+Impasse+de+Kerat%2C+56610+Arradon">Itinéraire</a>
+             href="https://www.google.com/maps/dir/?api=1&destination=5+Impasse+de+Kerat%2C+56610+Arradon" data-i18n="access.directions">Itinéraire</a>
         </article>
 
         <article class="card card--venue card--wide">
           <h3>Maison Jegat</h3>
-          <p class="card__when">Brunch du dimanche · 11h <span class="tbc">(à confirmer)</span></p>
-          <p>Pointe d'Arradon, 56610 Arradon</p>
+          <p class="card__when" data-i18n="access.jegat.when">Brunch du dimanche · 11h <span class="tbc">(à confirmer)</span></p>
+          <p data-i18n="access.jegat.address">Pointe d'Arradon, 56610 Arradon</p>
           <div class="venue-media">
             <figure class="photo">
               <img src="images/jegat.jpg" alt="La Maison Jegat, pointe d'Arradon" loading="lazy"
-                   onerror="this.closest('figure').hidden = true">
+                   onerror="this.closest('figure').hidden = true" data-i18n-attr="alt=img.jegat">
             </figure>
             <div class="map">
               <iframe
                 title="Carte : Maison Jegat, pointe d'Arradon"
                 src="https://www.google.com/maps?q=Maison+Jegat+Pointe+d%27Arradon&output=embed"
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-i18n-attr="title=map.jegat"></iframe>
             </div>
           </div>
           <a class="btn btn--small" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/dir/?api=1&destination=Maison+Jegat+Pointe+d%27Arradon">Itinéraire</a>
+             href="https://www.google.com/maps/dir/?api=1&destination=Maison+Jegat+Pointe+d%27Arradon" data-i18n="access.directions">Itinéraire</a>
         </article>
       </div>
 
       <div class="info">
-        <h3>Infos pratiques</h3>
+        <h3 data-i18n="access.info">Infos pratiques</h3>
         <ul>
-          <li><strong>En train :</strong> gare de Vannes (la plus proche du Manoir de Kerat), puis gare d'Auray (la plus proche de l'église de Locmariaquer). TGV direct depuis Paris-Montparnasse.</li>
-          <li><strong>Entre l'église et le manoir :</strong> environ 30 minutes en voiture.</li>
-          <li><strong>En avion :</strong> aéroports de Lorient Bretagne Sud, Nantes Atlantique ou Rennes.</li>
-          <li><strong>Stationnement au manoir :</strong> <span class="tbc">informations à venir</span></li>
-          <li><strong>Pour le brunch :</strong> la Maison Jegat est à quelques minutes du Manoir de Kerat, à la pointe d'Arradon.</li>
+          <li data-i18n="access.info.train"><strong>En train :</strong> gare de Vannes (la plus proche du Manoir de Kerat), puis gare d'Auray (la plus proche de l'église de Locmariaquer). TGV direct depuis Paris-Montparnasse.</li>
+          <li data-i18n="access.info.car"><strong>Entre l'église et le manoir :</strong> environ 30 minutes en voiture.</li>
+          <li data-i18n="access.info.plane"><strong>En avion :</strong> aéroports de Lorient Bretagne Sud, Nantes Atlantique ou Rennes.</li>
+          <li data-i18n="access.info.parking"><strong>Stationnement au manoir :</strong> <span class="tbc">informations à venir</span></li>
+          <li data-i18n="access.info.brunch"><strong>Pour le brunch :</strong> la Maison Jegat est à quelques minutes du Manoir de Kerat, à la pointe d'Arradon.</li>
         </ul>
       </div>
     </section>
 
     <!-- ======= LOGEMENT ======= -->
     <section class="panel" id="logement" role="tabpanel" aria-labelledby="tab-logement" hidden>
-      <h2>Se loger à proximité</h2>
-      <p class="notice">
+      <h2 data-i18n="stay.title">Se loger à proximité</h2>
+      <p class="notice" data-i18n="stay.notice">
         Fin juin, c'est la haute saison dans le Golfe du Morbihan : nous vous conseillons de réserver votre hébergement le plus tôt possible.
       </p>
 
       <!-- Arradon : encadré mis en avant -->
       <article class="card card--featured">
-        <span class="badge">Au plus près de la fête</span>
+        <span class="badge" data-i18n="stay.badge">Au plus près de la fête</span>
         <h3>Arradon</h3>
-        <p>Sur place, à deux pas du Manoir de Kerat et de la Maison Jegat : idéal pour profiter de la soirée et du brunch sans prendre la route.</p>
+        <p data-i18n="stay.arradon.text">Sur place, à deux pas du Manoir de Kerat et de la Maison Jegat : idéal pour profiter de la soirée et du brunch sans prendre la route.</p>
 
         <div class="stay-groups">
           <div class="stay-group">
-            <h4>Hôtel</h4>
+            <h4 data-i18n="stay.hotel">Hôtel</h4>
             <ul>
-              <li><a target="_blank" rel="noopener" href="https://www.lesvenetes.com/">Les Vénètes</a><span>Vue mer, pointe d'Arradon</span></li>
+              <li><a target="_blank" rel="noopener" href="https://www.lesvenetes.com/">Les Vénètes</a><span data-i18n="stay.venetes">Vue mer, pointe d'Arradon</span></li>
             </ul>
           </div>
           <div class="stay-group">
-            <h4>Chambres d'hôtes</h4>
+            <h4 data-i18n="stay.bnb">Chambres d'hôtes</h4>
             <ul>
               <li><a target="_blank" rel="noopener" href="https://en.manoirdetruhelin.com/">Manoir de Truhelin</a></li>
-              <li><a target="_blank" rel="noopener" href="http://www.manerkozh.fr/">Manerkozh</a><span>Le vieux manoir</span></li>
+              <li><a target="_blank" rel="noopener" href="http://www.manerkozh.fr/">Manerkozh</a><span data-i18n="stay.manerkozh">Le vieux manoir</span></li>
               <li><a target="_blank" rel="noopener" href="https://les-reflets-du-golfe.holiduhost.com/">Les Reflets du Golfe</a></li>
-              <li><a target="_blank" rel="noopener" href="https://tilaouen.fr/">Tilaouen</a><span>Chambres et gîte</span></li>
+              <li><a target="_blank" rel="noopener" href="https://tilaouen.fr/">Tilaouen</a><span data-i18n="stay.tilaouen">Chambres et gîte</span></li>
             </ul>
           </div>
           <div class="stay-group">
-            <h4>Campings</h4>
+            <h4 data-i18n="stay.camping">Campings</h4>
             <ul>
-              <li><a target="_blank" rel="noopener" href="https://www.camping-penboch.fr/">Camping de Penboch</a><span>4 étoiles</span></li>
-              <li><a target="_blank" rel="noopener" href="https://www.camping-allee.com/">Camping de l'Allée</a><span>3 étoiles</span></li>
+              <li><a target="_blank" rel="noopener" href="https://www.camping-penboch.fr/">Camping de Penboch</a><span data-i18n="stay.4stars">4 étoiles</span></li>
+              <li><a target="_blank" rel="noopener" href="https://www.camping-allee.com/">Camping de l'Allée</a><span data-i18n="stay.3stars">3 étoiles</span></li>
             </ul>
           </div>
         </div>
 
         <p class="links links--search">
-          <span>Chercher aussi sur :</span>
+          <span data-i18n="stay.searchAlso">Chercher aussi sur :</span>
           <a target="_blank" rel="noopener" href="https://www.booking.com/searchresults.fr.html?ss=Arradon">Booking</a>
           <a target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Arradon--France/homes">Airbnb</a>
           <a target="_blank" rel="noopener" href="https://www.gites-de-france-morbihan.com/location-vacances/gites-ARRADON-56003.html?distcomm=5">Gîtes de France</a>
         </p>
       </article>
 
-      <h3 class="stay-others">Un peu plus loin</h3>
+      <h3 class="stay-others" data-i18n="stay.others">Un peu plus loin</h3>
       <div class="cards cards--3">
         <article class="card">
           <h3>Vannes</h3>
-          <p>À 10 minutes d'Arradon : le plus grand choix d'hôtels, une gare TGV et une jolie vieille ville.</p>
+          <p data-i18n="stay.vannes.text">À 10 minutes d'Arradon : le plus grand choix d'hôtels, une gare TGV et une jolie vieille ville.</p>
           <p class="links">
             <a target="_blank" rel="noopener" href="https://www.booking.com/searchresults.fr.html?ss=Vannes">Booking</a>
             <a target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Vannes--France/homes">Airbnb</a>
@@ -268,7 +275,7 @@
         </article>
         <article class="card">
           <h3>Baden &amp; Larmor-Baden</h3>
-          <p>Entre l'église et le manoir, au bord du Golfe. Chambres d'hôtes et gîtes de charme.</p>
+          <p data-i18n="stay.baden.text">Entre l'église et le manoir, au bord du Golfe. Chambres d'hôtes et gîtes de charme.</p>
           <p class="links">
             <a target="_blank" rel="noopener" href="https://www.booking.com/searchresults.fr.html?ss=Baden%2C+Morbihan">Booking</a>
             <a target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Baden--France/homes">Airbnb</a>
@@ -277,7 +284,7 @@
         </article>
         <article class="card">
           <h3>Locmariaquer &amp; Auray</h3>
-          <p>Près de l'église : Locmariaquer pour la mer, Auray et le port de Saint-Goustan pour le charme.</p>
+          <p data-i18n="stay.locmariaquer.text">Près de l'église : Locmariaquer pour la mer, Auray et le port de Saint-Goustan pour le charme.</p>
           <p class="links">
             <a target="_blank" rel="noopener" href="https://www.booking.com/searchresults.fr.html?ss=Locmariaquer">Booking</a>
             <a target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Auray--France/homes">Airbnb</a>
@@ -290,7 +297,7 @@
 
     <!-- ======= LISTE DE MARIAGE ======= -->
     <section class="panel" id="liste" role="tabpanel" aria-labelledby="tab-liste" hidden>
-      <h2>Liste de mariage</h2>
+      <h2 data-i18n="gift.title">Liste de mariage</h2>
 
       <!-- Photos : images/fun/fun-1.jpg … fun-8.jpg (une photo absente est masquée).
            Légende : écrire le texte dans <figcaption>, ex. <figcaption>Ibiza 2019</figcaption> -->
@@ -313,13 +320,13 @@
         </figure>
       </div>
 
-      <p class="lead center">
+      <p class="lead center" data-i18n="gift.text">
         Votre présence à nos côtés est notre plus beau cadeau.<br>
         Pour ceux qui le souhaitent, une liste de mariage sera bientôt disponible.
       </p>
       <p class="center">
         <!-- Remplacer href="#" par le lien de la liste, et retirer la classe btn--disabled + aria-disabled -->
-        <a class="btn btn--disabled" id="registry-link" href="#" aria-disabled="true">Bientôt disponible</a>
+        <a class="btn btn--disabled" id="registry-link" href="#" aria-disabled="true" data-i18n="gift.button">Bientôt disponible</a>
       </p>
 
       <div class="polaroids">
@@ -347,13 +354,13 @@
   <!-- ======= POP-UP RSVP ======= -->
   <dialog class="modal" id="rsvp-modal" aria-labelledby="rsvp-modal-title">
     <div class="modal__header">
-      <h2 class="modal__title" id="rsvp-modal-title">Votre réponse</h2>
-      <button type="button" class="modal__close" id="rsvp-close" aria-label="Fermer">&times;</button>
+      <h2 class="modal__title" id="rsvp-modal-title" data-i18n="modal.title">Votre réponse</h2>
+      <button type="button" class="modal__close" id="rsvp-close" aria-label="Fermer" data-i18n-attr="aria-label=modal.close">&times;</button>
     </div>
-    <iframe class="modal__frame" id="rsvp-frame" title="Formulaire de réponse"></iframe>
+    <iframe class="modal__frame" id="rsvp-frame" title="Formulaire de réponse" data-i18n-attr="title=modal.frame"></iframe>
     <p class="modal__fallback">
-      Le formulaire ne s'affiche pas ?
-      <a id="rsvp-newtab" href="#" target="_blank" rel="noopener">Ouvrez-le dans un nouvel onglet</a>.
+      <span data-i18n="modal.fallback">Le formulaire ne s'affiche pas ?</span>
+      <a id="rsvp-newtab" href="#" target="_blank" rel="noopener" data-i18n="modal.newtab">Ouvrez-le dans un nouvel onglet</a>.
     </p>
   </dialog>
 
@@ -365,6 +372,7 @@
     <p>26 · 06 · 2027</p>
   </footer>
 
-  <script src="js/main.js?v=5"></script>
+  <script src="js/i18n.js?v=7"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>

@@ -114,19 +114,31 @@ a { color: var(--navy); }
 }
 
 /* ---------- Tabs ---------- */
-.tabs {
+/* Barre collante : onglets au centre, langue à droite */
+.topbar {
   position: sticky;
   top: 0;
   z-index: 10;
-  display: flex;
-  justify-content: center;
-  gap: 0.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
   padding: 0.5rem 1rem;
   background: rgba(250, 247, 242, 0.95);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--sand);
+}
+.tabs {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  min-width: 0;
   overflow-x: auto;
   scrollbar-width: none;
+}
+@media (max-width: 900px) {
+  .topbar { grid-template-columns: minmax(0, 1fr) auto; gap: 0.5rem; padding-right: 0.75rem; }
+  .tabs { grid-column: 1; justify-content: flex-start; }
 }
 .tabs::-webkit-scrollbar { display: none; }
 
@@ -155,9 +167,7 @@ a { color: var(--navy); }
   border-radius: 4px;
 }
 
-@media (max-width: 640px) {
-  .tabs { justify-content: flex-start; }
-}
+
 
 /* ---------- Panels ---------- */
 main {
@@ -593,4 +603,44 @@ button.btn:disabled { background: var(--sand); color: var(--muted); cursor: defa
   text-align: center;
   font-size: 1.6rem;
   margin: 0 0 1.25rem;
+}
+
+/* ---------- Sélecteur de langue ---------- */
+.lang-switch {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .lang-switch { grid-column: 2; padding-left: 0.75rem; border-left: 1px solid var(--sand); }
+}
+.lang-switch button {
+  font: inherit;
+  font-style: italic;
+  padding: 0.2rem 0.35rem;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.lang-switch button:hover { color: var(--navy); }
+.lang-switch button[aria-pressed="true"] {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--navy);
+  border-bottom-color: var(--gold);
+}
+.lang-switch button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+.lang-sep { color: var(--gold); }
+.lang-short { display: none; }
+@media (max-width: 640px) {
+  .lang-long { display: none; }
+  .lang-short { display: inline; }
 }

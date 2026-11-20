@@ -21,6 +21,14 @@ Le site sera disponible sur https://romaincoville.github.io/wedding-site/.
 Incrémenter le numéro `?v=` dans `index.html` (`css/style.css?v=2`, `js/main.js?v=2`)
 pour que les navigateurs des invités chargent la nouvelle version.
 
+## Traduction italienne
+
+- Le texte français est dans `index.html` ; chaque texte traduisible porte un attribut `data-i18n="clé"`.
+- Les traductions italiennes sont dans `js/i18n.js` (même clé). Une clé absente = texte français affiché.
+- Nouveau texte à traduire : ajouter `data-i18n="ma.cle"` dans `index.html` et `"ma.cle": "…"` dans `js/i18n.js`.
+- Lien direct en italien : https://romaincoville.github.io/wedding-site/?lang=it
+  (sinon : choix mémorisé, ou langue du navigateur).
+
 ## RSVP
 
 Le bouton « Répondre à l'invitation » ouvre un formulaire externe (Google Forms…) en pop-up.

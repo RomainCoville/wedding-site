@@ -29,7 +29,7 @@
       history.pushState(null, "", "#" + id);
     }
     show(id);
-    document.querySelector(".tabs").scrollIntoView({ behavior: "smooth" });
+    document.querySelector(".topbar").scrollIntoView({ behavior: "smooth" });
   }
 
   tabs.forEach(function (tab, i) {
@@ -62,8 +62,81 @@
   window.addEventListener("hashchange", function () { show(fromHash()); });
   show(fromHash());
 
+  /* ---------- Langue (FR / IT) ----------
+     Français = texte de index.html ; autres langues = js/i18n.js.
+     Priorité : lien ?lang=it > choix mémorisé > langue du navigateur > français. */
+  var LANGS = ["fr", "it"];
+  var DICT = window.I18N || {};
+  var lang = "fr";
+  var originals = new Map();
+
+  document.querySelectorAll("[data-i18n]").forEach(function (node) {
+    originals.set(node, { html: node.innerHTML });
+  });
+  document.querySelectorAll("[data-i18n-attr]").forEach(function (node) {
+    var saved = originals.get(node) || {};
+    saved.attrs = {};
+    node.dataset.i18nAttr.split(",").forEach(function (pair) {
+      var name = pair.split("=")[0].trim();
+      saved.attrs[name] = node.getAttribute(name);
+    });
+    originals.set(node, saved);
+  });
+  var originalTitle = document.title;
+
+  // Texte traduit, ou texte français si la clé n'existe pas
+  function t(key, fr) {
+    var d = DICT[lang];
+    return lang !== "fr" && d && d[key] != null ? d[key] : fr;
+  }
+
+  function storage(value) {
+    try {
+      if (value) localStorage.setItem("lang", value);
+      return localStorage.getItem("lang");
+    } catch (e) { return null; }
+  }
+
+  function initialLang() {
+    var fromUrl = new URLSearchParams(location.search).get("lang");
+    if (LANGS.indexOf(fromUrl) !== -1) return fromUrl;
+    var saved = storage();
+    if (LANGS.indexOf(saved) !== -1) return saved;
+    var nav = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    return nav.toLowerCase().indexOf("it") === 0 ? "it" : "fr";
+  }
+
+  var onLangChange = [];
+
+  function setLang(next, remember) {
+    lang = LANGS.indexOf(next) !== -1 ? next : "fr";
+    if (remember) storage(lang);
+    document.documentElement.lang = lang;
+    document.title = t("meta.title", originalTitle);
+
+    originals.forEach(function (saved, node) {
+      if (saved.html != null) node.innerHTML = t(node.dataset.i18n, saved.html);
+      if (saved.attrs) {
+        node.dataset.i18nAttr.split(",").forEach(function (pair) {
+          var parts = pair.split("=");
+          var name = parts[0].trim();
+          node.setAttribute(name, t(parts[1].trim(), saved.attrs[name]));
+        });
+      }
+    });
+
+    document.querySelectorAll(".lang-switch [data-lang]").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false");
+    });
+    onLangChange.forEach(function (fn) { fn(); });
+  }
+
+  document.querySelectorAll(".lang-switch [data-lang]").forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.dataset.lang, true); });
+  });
+
   /* ---------- RSVP ----------
-     Coller ci-dessous le lien du formulaire (Google Forms, Tally…).
+     Lien du formulaire (Youform, Google Forms, Tally…).
      Pour Google Forms, le mode intégré (?embedded=true) est ajouté automatiquement. */
   var RSVP_FORM_URL = "https://app.youform.com/forms/rd7v0z5k";
 
@@ -79,22 +152,23 @@
   }
 
   if (openBtn && modal) {
-    if (!RSVP_FORM_URL) {
-      openBtn.textContent = "Formulaire bientôt disponible";
-    } else {
-      openBtn.disabled = false;
-      document.getElementById("rsvp-newtab").href = RSVP_FORM_URL;
+    var newTab = document.getElementById("rsvp-newtab");
 
-      openBtn.addEventListener("click", function () {
-        if (!frame.getAttribute("src")) frame.src = embedUrl(RSVP_FORM_URL); // chargé au 1er clic
-        modal.showModal();
-        document.body.classList.add("no-scroll");
-      });
-      document.getElementById("rsvp-close").addEventListener("click", function () { modal.close(); });
-      // Clic sur le fond assombri = fermeture
-      modal.addEventListener("click", function (e) { if (e.target === modal) modal.close(); });
-      modal.addEventListener("close", function () { document.body.classList.remove("no-scroll"); });
-    }
+    newTab.href = RSVP_FORM_URL || "#";
+    openBtn.disabled = !RSVP_FORM_URL;
+    onLangChange.push(function () {
+      if (!RSVP_FORM_URL) openBtn.textContent = t("rsvp.soon", "Formulaire bientôt disponible");
+    });
+
+    openBtn.addEventListener("click", function () {
+      if (!frame.getAttribute("src")) frame.src = embedUrl(RSVP_FORM_URL); // chargé au 1er clic
+      modal.showModal();
+      document.body.classList.add("no-scroll");
+    });
+    document.getElementById("rsvp-close").addEventListener("click", function () { modal.close(); });
+    // Clic sur le fond assombri = fermeture
+    modal.addEventListener("click", function (e) { if (e.target === modal) modal.close(); });
+    modal.addEventListener("close", function () { document.body.classList.remove("no-scroll"); });
   }
 
   /* ---------- Compte à rebours ----------
@@ -102,13 +176,19 @@
      (date de l'appareil du visiteur). Masqué après le 26 juin. */
   var el = document.getElementById("countdown");
   if (el) {
-    var now = new Date();
-    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    var weddingDay = new Date(2027, 5, 26); // 26 juin 2027
-    // Math.round absorbe le décalage d'une heure lors des changements d'heure
-    var days = Math.round((weddingDay - today) / 86400000);
-    if (days > 1) el.textContent = "Plus que " + days + " jours";
-    else if (days === 1) el.textContent = "C'est demain !";
-    else if (days === 0) el.textContent = "C'est le grand jour !";
+    onLangChange.push(function () {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var weddingDay = new Date(2027, 5, 26); // 26 juin 2027
+      // Math.round absorbe le décalage d'une heure lors des changements d'heure
+      var days = Math.round((weddingDay - today) / 86400000);
+      var text = "";
+      if (days > 1) text = t("countdown.days", "Plus que {n} jours").replace("{n}", days);
+      else if (days === 1) text = t("countdown.tomorrow", "C'est demain !");
+      else if (days === 0) text = t("countdown.today", "C'est le grand jour !");
+      el.textContent = text;
+    });
   }
+
+  setLang(initialLang(), false);
 })();
