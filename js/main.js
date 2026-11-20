@@ -65,7 +65,7 @@
   /* ---------- RSVP ----------
      Coller ci-dessous le lien du formulaire (Google Forms, Tally…).
      Pour Google Forms, le mode intégré (?embedded=true) est ajouté automatiquement. */
-  var RSVP_FORM_URL = "";
+  var RSVP_FORM_URL = "https://app.youform.com/forms/rd7v0z5k";
 
   var openBtn = document.getElementById("rsvp-open");
   var modal = document.getElementById("rsvp-modal");
