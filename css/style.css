@@ -524,3 +524,73 @@ button.btn:disabled { background: var(--sand); color: var(--muted); cursor: defa
   .polaroids { gap: 2rem; }
   .polaroid { width: 200px; }
 }
+
+/* ---------- Logement : Arradon mis en avant ---------- */
+.card--featured {
+  position: relative;
+  text-align: left;
+  margin-bottom: 2.5rem;
+  padding: 2.25rem 2rem 1.75rem;
+  border: 2px solid var(--gold);
+  background: linear-gradient(180deg, #fff 0%, var(--cream) 100%);
+  box-shadow: 0 10px 30px rgba(31, 58, 95, 0.12);
+}
+.card--featured > h3 { font-size: 2.2rem; margin-top: 0.6rem; }
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.stay-groups {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+@media (min-width: 720px) {
+  .stay-groups { grid-template-columns: 1fr 1.3fr 1fr; }
+}
+.stay-group {
+  padding: 1rem 1.2rem;
+  background: #fff;
+  border: 1px solid var(--sand);
+  border-radius: 10px;
+}
+.stay-group h4 {
+  margin: 0 0 0.6rem;
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+.stay-group ul { list-style: none; margin: 0; padding: 0; }
+.stay-group li { margin: 0 0 0.6rem; line-height: 1.3; }
+.stay-group li:last-child { margin-bottom: 0; }
+.stay-group a {
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+}
+.stay-group a::after { content: " ↗"; font-size: 0.8em; color: var(--gold); }
+.stay-group li span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.links--search {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding-top: 1rem;
+  border-top: 1px solid var(--sand);
+}
+.links--search span { color: var(--muted); font-size: 0.9rem; }
+.links { flex-wrap: wrap; }
+.stay-others {
+  text-align: center;
+  font-size: 1.6rem;
+  margin: 0 0 1.25rem;
+}
