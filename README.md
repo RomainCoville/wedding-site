@@ -25,10 +25,8 @@ l'onglet « Réponses » → « Associer à Sheets ».
 
 ## À compléter
 
-- Horaire de la cérémonie (~14h30 à confirmer) et du brunch (~11h à confirmer)
-- Adresse exacte du Domaine de Kerat
-- Date limite de réponse au RSVP
+- Horaire de la cérémonie (14h30 à confirmer) et du brunch (11h à confirmer)
 - Lien du formulaire RSVP (`RSVP_FORM_URL` dans `js/main.js`)
 - Lien de la liste de mariage (`#registry-link` dans `index.html`)
-- Infos stationnement, email de contact, bonnes adresses de logement
+- Infos stationnement, bonnes adresses de logement
 - Photos dans `images/` (voir `images/README.md`)

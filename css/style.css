@@ -476,3 +476,51 @@ button.btn:disabled { background: var(--sand); color: var(--muted); cursor: defa
   top: -1px;
   bottom: auto;
 }
+.timeline__time small { display: block; font-family: var(--sans); font-size: 0.75rem; }
+
+/* ---------- Polaroïds (Liste de mariage) ---------- */
+.polaroids {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 1rem 0 2.5rem;
+}
+.polaroid {
+  width: calc(50% - 0.75rem);
+  max-width: 210px;
+  margin: 0;
+  padding: 0.6rem 0.6rem 0;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(31, 58, 95, 0.18);
+  transform: rotate(var(--tilt, -3deg));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.polaroid:nth-child(4n+2) { --tilt: 2.5deg; margin-top: 1.2rem; }
+.polaroid:nth-child(4n+3) { --tilt: -1.5deg; }
+.polaroid:nth-child(4n+4) { --tilt: 4deg; margin-top: 0.6rem; }
+.polaroid:hover {
+  transform: rotate(0) scale(1.08);
+  box-shadow: 0 14px 30px rgba(31, 58, 95, 0.28);
+  z-index: 1;
+  position: relative;
+}
+.polaroid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.polaroid figcaption {
+  font-family: "Caveat", cursive;
+  font-size: 1.3rem;
+  color: var(--navy);
+  text-align: center;
+  line-height: 1.2;
+  min-height: 2.2rem;
+  padding: 0.35rem 0 0.4rem;
+}
+@media (min-width: 720px) {
+  .polaroids { gap: 2rem; }
+  .polaroid { width: 200px; }
+}
