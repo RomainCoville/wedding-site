@@ -16,6 +16,11 @@ python3 -m http.server 8000
 Settings → Pages → Source : « Deploy from a branch » → branche `main`, dossier `/ (root)`.
 Le site sera disponible sur https://romaincoville.github.io/wedding-site/.
 
+## Après une modification du CSS ou du JS
+
+Incrémenter le numéro `?v=` dans `index.html` (`css/style.css?v=2`, `js/main.js?v=2`)
+pour que les navigateurs des invités chargent la nouvelle version.
+
 ## RSVP
 
 Le bouton « Répondre à l'invitation » ouvre un formulaire externe (Google Forms…) en pop-up.

@@ -97,17 +97,18 @@
     }
   }
 
-  /* ---------- Compte à rebours ---------- */
+  /* ---------- Compte à rebours ----------
+     Calculé à chaque ouverture de la page, en jours du calendrier
+     (date de l'appareil du visiteur). Masqué après le 26 juin. */
   var el = document.getElementById("countdown");
-  var wedding = new Date(2027, 5, 26, 14, 30, 0); // 26 juin 2027, 14h30 (heure locale)
-  var today = new Date();
-  var ms = wedding - today;
   if (el) {
-    if (ms > 0) {
-      var days = Math.ceil(ms / 86400000);
-      el.textContent = days === 1 ? "C'est demain !" : "Plus que " + days + " jours";
-    } else if (ms > -2 * 86400000) {
-      el.textContent = "C'est le grand jour !";
-    }
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var weddingDay = new Date(2027, 5, 26); // 26 juin 2027
+    // Math.round absorbe le décalage d'une heure lors des changements d'heure
+    var days = Math.round((weddingDay - today) / 86400000);
+    if (days > 1) el.textContent = "Plus que " + days + " jours";
+    else if (days === 1) el.textContent = "C'est demain !";
+    else if (days === 0) el.textContent = "C'est le grand jour !";
   }
 })();
